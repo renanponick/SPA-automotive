@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import { Menu, X, Sun, Moon, Wrench } from 'lucide-react';
 import { useTheme } from '../context/ThemeContext';
 import { Button } from './ui/button';
@@ -29,19 +28,19 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div
+          <div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center gap-2"
           >
             <Wrench className="h-8 w-8 text-orange-500" />
             <span className="text-xl font-bold">Oficina Premium</span>
-          </motion.div>
+          </div>
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-6">
             {menuItems.map((item, index) => (
-              <motion.button
+              <button
                 key={item.name}
                 initial={{ opacity: 0, y: -10 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -50,7 +49,7 @@ const Navbar = () => {
                 className="text-foreground hover:text-orange-500 transition-colors"
               >
                 {item.name}
-              </motion.button>
+              </button>
             ))}
             
             <Button
@@ -93,7 +92,7 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isOpen && (
-          <motion.div
+          <div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
@@ -108,7 +107,7 @@ const Navbar = () => {
                 {item.name}
               </button>
             ))}
-          </motion.div>
+          </div>
         )}
       </div>
     </nav>
